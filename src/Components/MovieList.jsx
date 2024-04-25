@@ -1,6 +1,8 @@
+// MovieList.js
 import React, { useEffect, useState } from "react";
 import MovieItemCard from "./MovieItemCard";
 import ActorDetail from "./ActorDetail";
+import MovieImage from "../Assets/movie ilustration.png";
 
 const MovieList = () => {
   const [movieList, setMovieList] = useState([]);
@@ -27,24 +29,61 @@ const MovieList = () => {
     setSelectedMovie(movie);
   };
 
+  const handleBackClick = () => {
+    setSelectedMovie(null);
+  };
+
   return (
     <div className="w-[90%] text-center mx-auto">
-      <h1 className="text-3xl font-bold text-center text-gray-800 p-6">
-        MovieList
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 ">
-        {movieList.map((movie) => (
-          <div key={movie.name}>
-            <MovieItemCard
-              name={movie.name}
-              height={movie.height}
-              birthYear={movie.birth_year}
-              onClick={() => handleMovieClick(movie)}
-            />
+      {selectedMovie ? (
+        <div className="w-[90%] h-screen mx-auto">
+          <div>
+            <button
+              onClick={handleBackClick}
+              className="
+             flex justify-end mt-8
+             ml-auto
+            mt-4
+              py-2
+              px-7
+              bg-blue-600 
+              text-white border 
+              border-blue-600
+              rounded-full
+              text-base text-body-color
+              font-medium
+              hover:border-[#E5E7EB] hover:bg-blue-500 hover:text-base hover:border hover:
+            "
+            >
+              Back
+            </button>
           </div>
-        ))}
-      </div>
-      {selectedMovie && <ActorDetail movie={selectedMovie} />}
+          <div className="flex justify-between items-center">
+            <ActorDetail movie={selectedMovie} />
+            <div>
+              <img src={MovieImage} alt="" />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <h1 className="text-3xl  font-bold text-center text-gray-800 p-6">
+            MovieList
+          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {movieList.map((movie) => (
+              <div key={movie.name}>
+                <MovieItemCard
+                  name={movie.name}
+                  height={movie.height}
+                  birthYear={movie.birth_year}
+                  onClick={() => handleMovieClick(movie)}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

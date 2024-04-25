@@ -1,6 +1,7 @@
+// MovieItemCard.js
 import React from "react";
 
-const MovieItemCard = ({ name, height, birthYear }) => {
+const MovieItemCard = ({ name, height, birthYear, onClick }) => {
   return (
     <div className="w-full  px-4 shadow-md-xl">
       <div className="bg-white rounded-lg overflow-hidden mb-10">
@@ -15,7 +16,7 @@ const MovieItemCard = ({ name, height, birthYear }) => {
             Birth Year: {birthYear}
           </p>
           <button
-            onClick={() => {}}
+            onClick={() => onClick()}
             className="
               inline-block
               py-2
