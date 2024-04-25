@@ -3,7 +3,7 @@ import MerebImage from "../Assets/mereb-removebg-preview.png";
 
 const Nav = () => {
   return (
-    <nav className=" w-full z-20 top-0 left-0 bg-white bg-gray-500 border-gray-200 dark:bg-gray-900">
+    <nav className=" w-full z-20 top-0 left-0  bg-black border-gray-200 ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a
           href="https://mereb.tech/"
@@ -39,7 +39,7 @@ const Nav = () => {
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <a
             href="#"
-            className="block py-2 px-3 text-white"
+            className="block py-2 px-3 text-[#eaa400]"
             aria-current="page"
           >
             mereb.tech cahllenge

@@ -34,9 +34,9 @@ const MovieList = () => {
   };
 
   return (
-    <div className="w-[90%] text-center mx-auto">
+    <div className="w-[90%] text-center mx-auto bg-gray-200">
       {selectedMovie ? (
-        <div className="w-[90%] h-screen mx-auto">
+        <div className="w-[90%]  mx-auto">
           <div>
             <button
               onClick={handleBackClick}
@@ -58,7 +58,7 @@ const MovieList = () => {
               Back
             </button>
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col flex-col-reverse md:flex-row reverse justify-between items-center">
             <ActorDetail movie={selectedMovie} />
             <div>
               <img src={MovieImage} alt="" />
@@ -67,7 +67,7 @@ const MovieList = () => {
         </div>
       ) : (
         <div>
-          <h1 className="text-3xl  font-bold text-center text-gray-800 p-6">
+          <h1 className="text-3xl   font-bold text-center text-[#eaa400] p-6">
             MovieList
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
