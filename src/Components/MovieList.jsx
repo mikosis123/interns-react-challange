@@ -1,4 +1,3 @@
-// MovieList.js
 import React, { useEffect, useState } from "react";
 import MovieItemCard from "./MovieItemCard";
 import ActorDetail from "./ActorDetail";
@@ -7,7 +6,7 @@ import MovieImage from "../Assets/movie ilustration.png";
 const MovieList = () => {
   const [movieList, setMovieList] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -17,6 +16,7 @@ const MovieList = () => {
         }
         const data = await response.json();
         setMovieList(data.results);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -32,6 +32,13 @@ const MovieList = () => {
   const handleBackClick = () => {
     setSelectedMovie(null);
   };
+  if (isLoading) {
+    return (
+      <div className="w-[90%] h-screen text-center mx-auto bg-gray-200">
+        Loading...
+      </div>
+    );
+  }
 
   return (
     <div className="w-[90%] text-center mx-auto bg-gray-200">
@@ -60,14 +67,14 @@ const MovieList = () => {
           </div>
           <div className="flex flex-col flex-col-reverse md:flex-row reverse justify-between items-center">
             <ActorDetail movie={selectedMovie} />
-            <div>
-              <img src={MovieImage} alt="" />
+            <div className="">
+              <img src={MovieImage} alt="movie" />
             </div>
           </div>
         </div>
       ) : (
         <div>
-          <h1 className="text-3xl   font-bold text-center text-[#eaa400] p-6">
+          <h1 className="text-4xl my-6   font-bold text-center text-[#eaa400] p-6">
             MovieList
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
