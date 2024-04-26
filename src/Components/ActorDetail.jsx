@@ -7,7 +7,7 @@ import StarsIcon from "@mui/icons-material/Stars";
 
 const ActorDetail = ({ movie }) => {
   return (
-    <div className="">
+    <div className="mb-8">
       <div className="flex flex-col md:h-screen h  gap-16 md:flex-row ">
         <h1 className=" mb-4 text-5xl mt-24 font-extrabold text-center text-[#eaa400]  ">
           {movie.name}

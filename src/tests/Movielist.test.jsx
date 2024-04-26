@@ -41,7 +41,6 @@ describe("MovieList Component", () => {
 
     fireEvent.click(screen.getByText("Luke Skywalker"));
 
-    // Check if movie details are rendered
     await waitFor(() => {
       expect(screen.getByText("Name: Luke Skywalker")).toBeInTheDocument();
       expect(screen.getByText("Height: 172")).toBeInTheDocument();
@@ -52,13 +51,10 @@ describe("MovieList Component", () => {
   it("renders back button and goes back to movie list when clicked", async () => {
     render(<MovieList />);
 
-    // Click on a movie
     fireEvent.click(screen.getByText("Luke Skywalker"));
 
-    // Click on the back button
     fireEvent.click(screen.getByText("Back"));
 
-    // Check if back button works
     await waitFor(() => {
       expect(screen.getByText("MovieList")).toBeInTheDocument();
     });
